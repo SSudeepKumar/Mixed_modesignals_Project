@@ -69,6 +69,9 @@ This logic produces the same digital output as a conventional ADC but with fewer
 A. Comparator
 The Comparator is the heart of any ADC – it decides whether 𝑉𝑖𝑛 is larger or smaller than the reference level.
 
+
+![Alt text](https://github.com/SSudeepKumar/Mixed_modesignals_Project/blob/main/Screenshot%20from%202025-11-04%2011-12-28.png)
+
 In this design:
 
 7 Comparators are strategically placed for all bit levels. Only essentials are turned on dynamically to save power.
