@@ -68,29 +68,20 @@ This logic produces the same digital output as a conventional ADC but with fewer
    
 A. Comparator
 The Comparator is the heart of any ADC – it decides whether 𝑉𝑖𝑛 is larger or smaller than the reference level.
-
-
-![Alt text](https://github.com/SSudeepKumar/Mixed_modesignals_Project/blob/main/Screenshot%20from%202025-11-04%2011-12-28.png)
-
-In this design:
-
-7 Comparators are strategically placed for all bit levels. Only essentials are turned on dynamically to save power.
+In this design 7 Comparators are strategically placed for all bit levels. Only essentials are turned on dynamically to save power.
 
 
 B. inverter
-
 The inverter plays a control role by enabling the appropriate group of comparators based on the result of the MSB.
 When MSB = 1, half of the comparator is active.
 When MSB = 0, the second part is activated.
 
 
 C. or gate
-
 OR gate combines the logic outputs from different comparators and produces bit outputs (e.g. B2, B1, etc.) based on multiple conditions.
 
 
 D. multiplexer
-
 The multiplexer selects the correct reference voltage level for comparison based on the previous bit results.This allows a set of hardware to be reused for multiple bit decisions – similar to SAR logic.
 
 ![Alt text](https://github.com/SSudeepKumar/Mixed_modesignals_Project/blob/main/Screenshot%20from%202025-11-04%2011-12-18.png?raw=true)
@@ -102,7 +93,6 @@ Comparators consume both static and dynamic power whenever they switch.
 To reduce this:
 
 Only the compilers required for each conversion cycle are active.Others are disconnected (standby mode) through inverters and control by OR gates.This selective activation results in a drastic reduction in overall current consumption without any loss in performance.
-
 
 
 4. Binary Search-Based Transformation Algorithm
@@ -127,9 +117,14 @@ Reference selection and output combining is done by multiplexers and OR gates.
 Each stage effectively divides the voltage range by two, quickly converting to the digital equivalent Vin.
 Thus, the ADC "searches" for the nearest digital code using voltage division rather than full parallel comparison.
 
+![Alt text](https://github.com/SSudeepKumar/Mixed_modesignals_Project/blob/main/Screenshot%20from%202025-11-04%2011-12-05.png)
+
+
 
 Comparator Design :
 
+
+![Alt text](https://github.com/SSudeepKumar/Mixed_modesignals_Project/blob/main/Screenshot%20from%202025-11-04%2011-12-28.png)
 
 The Comparator is the most important component because it directly determines:
 Speed: How fast the ADC can make decisions
