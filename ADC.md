@@ -5,7 +5,9 @@ The demand for compact and energy-efficient analog-to-digital converters (ADCs) 
 
 Keywords :   Analog-to-Digital Converter, Hybrid ADC, Low Power Design, Comparator Optimization, CMOS 45nm, High-Speed Communication
 
+
 I. Introduction
+
 
 1. Why do we need high-speed ADC
 
@@ -15,6 +17,7 @@ For example:
 * Wireless transceivers must digitize RF signals rapidly.
 * However, speed is not the only objective; Low power consumption is equally important, especially for portable or battery-powered devices.
 * Therefore, the challenge is to design an ADC that is fast, low power, and has a simple structure.
+
 
 2. Comparison of existing ADC architectures
    
@@ -39,7 +42,10 @@ This hybrid strategy:
 
 For 4-bit or 6-bit converters used in high-speed front-end systems, it provides a balance between speed, power, and area.
 
+
+
 II. Proposed ADC Architecture :
+
 
 1. Main concept
 
@@ -57,15 +63,16 @@ Conversion Process (Binary Search Sequence):
 
 This logic produces the same digital output as a conventional ADC but with fewer active hardware blocks.
 
+
 2. Main Building Block
    
 A. Comparator
-
 The Comparator is the heart of any ADC – it decides whether 𝑉𝑖𝑛 is larger or smaller than the reference level.
 
 In this design:
 
 7 Comparators are strategically placed for all bit levels. Only essentials are turned on dynamically to save power.
+
 
 B. inverter
 
@@ -73,13 +80,17 @@ The inverter plays a control role by enabling the appropriate group of comparato
 When MSB = 1, half of the comparator is active.
 When MSB = 0, the second part is activated.
 
+
 C. or gate
 
 OR gate combines the logic outputs from different comparators and produces bit outputs (e.g. B2, B1, etc.) based on multiple conditions.
 
+
 D. multiplexer
 
 The multiplexer selects the correct reference voltage level for comparison based on the previous bit results.This allows a set of hardware to be reused for multiple bit decisions – similar to SAR logic.
+
+
 
 3. Power optimization through standby technology
 
@@ -88,6 +99,8 @@ Comparators consume both static and dynamic power whenever they switch.
 To reduce this:
 
 Only the compilers required for each conversion cycle are active.Others are disconnected (standby mode) through inverters and control by OR gates.This selective activation results in a drastic reduction in overall current consumption without any loss in performance.
+
+
 
 4. Binary Search-Based Transformation Algorithm
 
@@ -111,7 +124,9 @@ Reference selection and output combining is done by multiplexers and OR gates.
 Each stage effectively divides the voltage range by two, quickly converting to the digital equivalent Vin.
 Thus, the ADC "searches" for the nearest digital code using voltage division rather than full parallel comparison.
 
+
 Comparator Design :
+
 
 The Comparator is the most important component because it directly determines:
 Speed: How fast the ADC can make decisions
@@ -120,16 +135,19 @@ Power: How much energy is consumed during the comparison
 
 To meet these conflicting requirements, the proposed comparator consists of four cascade stages:
 
+
 1. Preamplifier Stage
 
 A small differential amplifier at the input.
 Amplifies the input signal difference before it reaches the latch.
 Reduces offset voltage and kickback noise, which is common in high-speed comparators.
 
+
 2. Latch stage
 
 Functions as a decision circuit.
 Once the clock signal arrives, the latch makes a fast decision Vin is more or less than Vref. Provides very high speed but low resolution, so it requires a preamplifier to support it.
+
 
 3. Self-biased differential amplifier
 
