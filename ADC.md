@@ -93,7 +93,7 @@ D. multiplexer
 
 The multiplexer selects the correct reference voltage level for comparison based on the previous bit results.This allows a set of hardware to be reused for multiple bit decisions – similar to SAR logic.
 
-
+![Alt text](https://github.com/SSudeepKumar/Mixed_modesignals_Project/blob/main/Screenshot%20from%202025-11-04%2011-12-18.png?raw=true)
 
 3. Power optimization through standby technology
 
