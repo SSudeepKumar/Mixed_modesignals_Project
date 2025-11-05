@@ -1,1 +1,7 @@
-.
+Abstract :  
+
+The demand for compact and energy-efficient analog-to-digital converters (ADCs) is increasing with the rapid growth of high-speed communication and portable devices. Conventional Flash ADCs offer excellent speed but suffer from excessive power dissipation due to their exponential comparator scaling, while Successive Approximation Register (SAR) ADCs are power efficient but limited in speed. To address this trade off, this project presents the design and evaluation of a hybrid ADC architecture that combines the advantages of Flash and SAR topologies. The proposed ADC employs a reduced number of comparators operating in an adaptive mode, where inactive comparators are placed in standby states to minimize power consumption. The digital code generation is performed through a binary search–inspired algorithm, ensuring fast conversion with reduced circuit complexity. Core building blocks such as high-speed comparators, multiplexers, and logic gates are designed and optimized at the transistor level. Simulations will be carried out in Cadence Virtuoso using a 45 nm CMOS process with a ±0.6 V supply. Performance analysis will focus on static linearity metrics such as Integral Non Linearity (INL) and Differential Non-Linearity (DNL), as well as dynamic parameters including speed and power efficiency. Preliminary expectations indicate that the ADC can achieve sampling rates up to 4 GS/s with power consumption below100 µW. 
+
+
+Keywords :   Analog-to-Digital Converter, Hybrid ADC, Low Power Design, Comparator Optimization, CMOS 45nm, High-Speed Communication
+
